@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Sabre\VObject;
 
-use Baikal\CoreBundle\Services\BaikalConfigServiceInterface;
+use Baikal\SystemBundle\Services\BaikalConfigServiceInterface;
 
 class DavTimeZoneHelper {
 
