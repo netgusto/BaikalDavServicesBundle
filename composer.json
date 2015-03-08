@@ -1,0 +1,18 @@
+{
+    "name": "baikal/dav-services-bundle",
+    "version": "2.0.0-alpha1",
+    "description": "Baïkal DAV Services Bundle",
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-0": { "Baikal\\DavServicesBundle": "" }
+    },
+    "target-dir": "Baikal/DavServicesBundle",
+    "license": "GNU-GPL",
+    "authors": [
+        {
+            "name": "Jérôme Schneider - Net Gusto",
+            "email": "contact@netgusto.com"
+        }
+    ],
+    "require": {}
+}
