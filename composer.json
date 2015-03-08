@@ -14,5 +14,7 @@
             "email": "contact@netgusto.com"
         }
     ],
-    "require": {}
+    "require": {
+        "sabre/dav": "2.0.5"
+    }
 }
