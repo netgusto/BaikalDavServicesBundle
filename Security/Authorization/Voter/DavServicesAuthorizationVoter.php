@@ -13,7 +13,7 @@ use Baikal\ModelBundle\Entity\Calendar,
     Baikal\ModelBundle\Entity\Addressbook,
     Baikal\ModelBundle\Entity\AddressbookContact;
 
-use Baikal\SystemBundle\Services\BaikalConfigServiceInterface;
+use Baikal\KernelBundle\Services\BaikalConfigServiceInterface;
 
 
 class DavServicesAuthorizationVoter implements VoterInterface
