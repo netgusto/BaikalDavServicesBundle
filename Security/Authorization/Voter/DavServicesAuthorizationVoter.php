@@ -13,17 +13,14 @@ use Baikal\ModelBundle\Entity\Calendar,
     Baikal\ModelBundle\Entity\Addressbook,
     Baikal\ModelBundle\Entity\AddressbookContact;
 
-use Baikal\KernelBundle\Services\BaikalConfigServiceInterface;
-
-
 class DavServicesAuthorizationVoter implements VoterInterface
 {
     protected $container;
-    protected $mainconfig;
+    protected $apienabled;
 
-    public function __construct($container, BaikalConfigServiceInterface $mainconfig) {
+    public function __construct($container, $apienabled) {
         $this->container = $container;
-        $this->mainconfig = $mainconfig;
+        $this->apienabled = $apienabled;
     }
 
     public function supportsAttribute($attribute)
@@ -63,7 +60,7 @@ class DavServicesAuthorizationVoter implements VoterInterface
         if($attribute === 'rest.api') {
             # check if the REST service is enabled
             # we do that before supportsClass(), as in this case we have no $calendar to check against
-            if($this->mainconfig->getEnable_api() !== TRUE) {
+            if($this->apienabled !== TRUE) {
                 return VoterInterface::ACCESS_DENIED;
             } else {
                 return VoterInterface::ACCESS_GRANTED;
@@ -71,7 +68,7 @@ class DavServicesAuthorizationVoter implements VoterInterface
         }
 
         # if not rest.api, we still check that the API is enabled
-        if($this->mainconfig->getEnable_api() !== TRUE) {
+        if($this->apienabled !== TRUE) {
             return VoterInterface::ACCESS_DENIED;
         }
 

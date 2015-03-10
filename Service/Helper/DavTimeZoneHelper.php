@@ -6,14 +6,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Sabre\VObject;
 
-use Baikal\KernelBundle\Services\BaikalConfigServiceInterface;
-
 class DavTimeZoneHelper {
 
-    protected $mainconfig;
+    protected $servertimezone;
 
-    public function __construct(BaikalConfigServiceInterface $mainconfig) {
-        $this->mainconfig = $mainconfig;
+    public function __construct($servertimezone) {
+        $this->servertimezone = $servertimezone;
     }
     
     public function extractTimeZoneFromDavString($davstring) {
@@ -25,7 +23,7 @@ class DavTimeZoneHelper {
             );
         } catch(\Exception $e) {
             # Defaulting to Server timezone
-            $timezone = $this->mainconfig->getServerTimezone();
+            $timezone = \DateTimeZone($this->servertimezone);
         }
 
         return $timezone;

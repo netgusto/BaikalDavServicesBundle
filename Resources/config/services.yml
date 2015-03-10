@@ -70,7 +70,7 @@ services:
         arguments:
             #- @security.context # LAZY LOADED to avoid circular dependency
             - @service_container
-            - @config.main
+            - %baikal.api.enabled%
         tags:
             - { name: security.voter }
 
@@ -79,4 +79,4 @@ services:
     baikal.helper.davtimezonehelper:
         class: Baikal\DavServicesBundle\Service\Helper\DavTimeZoneHelper
         arguments:
-            - @config.main
+            - %baikal.servertimezone%
