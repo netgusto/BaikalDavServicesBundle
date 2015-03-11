@@ -23,7 +23,7 @@ class DavTimeZoneHelper {
             );
         } catch(\Exception $e) {
             # Defaulting to Server timezone
-            $timezone = \DateTimeZone($this->servertimezone);
+            $timezone = new \DateTimeZone($this->servertimezone);
         }
 
         return $timezone;
